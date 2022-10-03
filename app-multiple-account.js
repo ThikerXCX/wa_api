@@ -11,7 +11,9 @@ const port = process.env.PORT || 8885;
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIO(server);
+const io = socketIO(server,{
+  allowEIO3: true // false by default
+});
 
 app.use(express.json());
 app.use(express.urlencoded({
